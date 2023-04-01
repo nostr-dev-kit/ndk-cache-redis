@@ -2,5 +2,6 @@
   "importOrder": ["^[./]"],
   "importOrderSeparation": true,
   "tabWidth": 4,
-  "useTabs": false
+  "useTabs": false,
+  "semi": true
 }

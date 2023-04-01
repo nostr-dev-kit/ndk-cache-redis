@@ -1,10 +1,13 @@
 {
-    "name": "ndk-cache-redis",
+    "name": "@nostr-dev-kit/ndk-cache-redis",
     "version": "1.0.0",
     "description": "NDK cache adapter for redis.",
     "main": "dist/index.js",
     "scripts": {
-        "build": "tsc",
+        "build": "pnpm build:cjs && pnpm build:esm && pnpm build:types",
+        "build:cjs": "node tools/cleanup cjs && tsc -p config/tsconfig.cjs.json",
+        "build:esm": "node tools/cleanup esm && tsc -p config/tsconfig.esm.json",
+        "build:types": "node tools/cleanup types && tsc -p config/tsconfig.types.json",
         "lint": "eslint src/**/*.ts"
     },
     "repository": {
@@ -27,5 +30,9 @@
         "eslint-config-prettier": "^8.8.0",
         "eslint-plugin-import": "^2.27.5",
         "typescript": "^5.0.3"
+    },
+    "dependencies": {
+        "@nostr-dev-kit/ndk": "^0.0.4",
+        "ioredis": "^5.3.1"
     }
 }
