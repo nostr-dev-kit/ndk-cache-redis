@@ -22,7 +22,7 @@ interface RedisAdapterOptions {
 
 export default class RedisAdapter implements NDKCacheAdapter {
     public redis;
-    public debug;
+    public debug: debug.IDebugger;
     private expirationTime;
     readonly locking;
 
